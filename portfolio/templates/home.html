@@ -2,19 +2,44 @@
 
 {% block content %}
 
-<h1>Home</h1>
+{% load static %}
 
-{% for project in projects %}
+<header class="row bg-black">
+    <div class="col-md-4">
+        <img src="{% static 'portfolio/profile.jpeg' %}" alt="" class="col-md-12">
+    </div>
+    <div class="col-md-8 my-auto">
+        <h1>I am <strong>Juan Cardona</strong></h1>
+        <h3>I am a Python FullStack Developer</h3>
 
-<h2>{{project.title}}</h2>
-<p>{{project.description}}</p>
-<img src="{{project.image.url}}" alt="{{project.title}}">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam error facere quam repudiandae, cumque laudantium! Quaerat fugit consequuntur, officia ratione ad numquam illum minima, suscipit sequi inventore excepturi aperiam, nisi quo molestias. Quisquam aliquam ab, culpa at ut corrupti nesciunt rerum exercitationem facere vel libero voluptatum quia quis, officiis dolor minus odit fuga sint, beatae ad sapiente eveniet quo laudantium. Quo libero dolorem quibusdam natus distinctio, facilis alias voluptatem totam eum placeat modi nisi eos, repellendus hic voluptates tempora tenetur ipsam.</p>
+        <a href="{% static 'portfolio/HOJA_DE_VIDA_Actualizada.pdf' %}" class="btn btn-primary btn-lg rounded-0 my-3">Download CV</a>
+    </div>
+</header>
 
-    {% if project.url %}
-    <a href="{{project.url}}">{{project.url}}</a>
-    {% endif %}
+<div class="row my-4 text-center">
 
-{% endfor %}
+    <h3>My Projects</h3>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Inventore, soluta.</p>
+
+    {% for project in projects %}
+
+    <div class="col-md-4 p-4">
+        <div class="card bg-black card-project">
+            <img src="{{project.image.url}}" alt="{{project.title}}" class="card-img-top">
+            <div class="card-body">
+                <h2>{{project.title}}</h2>
+                <p>{{project.description}}</p>
+
+                {% if project.url %}
+                <a href="{{project.url}}" class="btn btn-light rounded-0 btn-sm" target="_blank">{{project.url}}</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    {% endfor %}
 
 
-{% endblock %}
+    {% endblock %}
+</div>
