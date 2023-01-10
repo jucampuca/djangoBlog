@@ -1,19 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Post 1</title>
-</head>
-<body>
-    
-    <h1>Post</h1>
+{% extends 'layout.html' %}
 
-    <h2>{{post.title}}</h2>
-    <h3>{{post.date}}</h3>
-    <p>{{post.description|striptags|truncatechars:100}}</p>
-    <img src="{{post.image.url}}" alt="{{post.title}}">
+{% block content %}
+<h1>Post</h1>
 
-</body>
-</html>
+<h2>{{post.title}}</h2>
+<h3>{{post.date}}</h3>
+<p>{{post.description|safe|truncatechars:100}}</p>
+<img src="{{post.image.url}}" alt="{{post.title}}">
+
+{% endblock %}
